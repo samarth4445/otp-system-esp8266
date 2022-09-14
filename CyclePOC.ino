@@ -45,8 +45,7 @@ void setup() {
   int otp_keypad = otpGetKeypad();  // functions end only when 4 digits are entered on the keypad
   
   JSONVar object = otpGetServer();  // sends https request to the server to get the otp
-  int otp_server = int(object["otp"]); // extracting otp from the response file from the server
-
+  int otp_server = int(object["otp"]); // extracting otp from the json response that the server gave
   if(otp_keypad == otp_server){
     Serial.println();
     Serial.println("Cycle Unlocked!");
