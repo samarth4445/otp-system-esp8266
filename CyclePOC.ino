@@ -45,7 +45,7 @@ void setup() {
   int otp_keypad = otpGetKeypad();  // functions end only when 4 digits are entered on the keypad
   
   JSONVar object = otpGetServer();  // sends https request to the server to get the otp
-  int otp_server = int(object["otp"]); // extracting otp from the json response that the server gave
+  int otp_server = int(object["otp"]); // extracting otp from the json response that was sent from the server
   if(otp_keypad == otp_server){
     Serial.println();
     Serial.println("Cycle Unlocked!");
@@ -53,7 +53,7 @@ void setup() {
   }
   else{
     Serial.println();
-    Serial.println("OTP you entered is invalid, please try again.");  // esp needs to be restarted to enter the otp again. no trial and exception used.
+    Serial.println("OTP you entered is invalid, please try again.");  // esp needs to be restarted to enter the otp again. no try and exception used.
   }
   
   
